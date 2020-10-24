@@ -1,5 +1,5 @@
 Function Set-WallPaper($Value){
-    Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -name wallpaper -value $value
+    Set-ItemProperty -path HKCU:\Control Panel\Desktop -Name wallpaper -Value $value
 }
 Function Set-Theme($Value){
     New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value $value -Type Dword -Force
