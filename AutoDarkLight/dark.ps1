@@ -1,0 +1,11 @@
+Function Set-WallPaper($Value){
+    Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -name wallpaper -value $value
+}
+Function Set-Theme($Value){
+    New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize -Name AppsUseLightTheme -Value $value -Type Dword -Force
+}
+Set-WallPaper -value "path to your dark wallpaper"
+Set-Theme -value 0 #  dark theme
+for ($i = 0; $i -lt 5; $i++) {
+    RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters ,1 ,True
+}
